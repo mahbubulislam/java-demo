@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content!!</div>
+        <script>
+         function validateForm() {
+             
+             var fullValidate = true;
+            var name = document.forms["testForm"]["txtName"].value;
+            for(i=0;i<document.forms["testForm"]["vehicle"].length;i++){
+                var isChecked = document.forms["testForm"]["vehicle"][i].checked;
+                console.log(isChecked);
+                if (!isChecked) {
+                    
+                  fullValidate = false;
+                }
+            }
+            
+            console.log(name);
+            console.log(vehical);
+                if (name == null || name == "") {
+                   
+                    fullValidate = false;
+                }
+                if(!fullValidate){
+                    alert('Enter value for each field');
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+
+        </script>
+        <form name="testForm" action="submitdata" method="post" onsubmit="return validateForm()">
+            <input type="text" value="" name="txtName" />
+            
+            <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+            <input type="checkbox" name="vehicle" value="Car">I have a car
+            
+            
+            <select name="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+            
+           
+            
+            <input type="radio" name="gender" value="male"> Male<br>
+            <input type="radio" name="gender" value="female"> Female<br>
+            <input type="radio" name="gender" value="other"> Other
+            
+            <input type="password" value="" name="txtPass" />
+            <input type="submit" value="submit" />
+        </form>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>com.gmail.mmi.cse.MyDemoServlet</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/HelloWorld</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>AddUserInfo</servlet-name>
+        <servlet-class>com.gmail.mmi.cse.AddUserInfo</servlet-class>
+        
+        <init-param>
+            <param-name> defaultSalutation </param-name>
+            <param-value> Hello World</param-value>
+            
+        </init-param>
+        <init-param>
+            <param-name> defaultSlogan </param-name>
+            <param-value> This will be default slogan</param-value>
+        </init-param>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>AddUserInfo</servlet-name>
+        <url-pattern>/adduserInfo</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!-- filter>
+        <filter-name>MyAuthFilter</filter-name>
+        <filter-class>>com.gmail.mmi.cse.MyFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>MyAuthFilter</filter-name>
+        <url-pattern>/MyRestrictedServlet</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>MyLogFilter</filter-name>
+        <filter-class>>com.gmail.mmi.cse.MyLogFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>MyLogFilter</filter-name>
+        <url-pattern>/MyRestrictedServlet</url-pattern>
+    </filter-mapping -->
+    
+   <context-param>  
+    <param-name>defaultSlogan</param-name>  
+    <param-value>This is default slogan</param-value>  
+  </context-param>  
+    <error-page>
+        <error-code>400</error-code>
+        <location>/error-page</location>
+    </error-page>
+       <error-page>
+        <error-code>404</error-code>
+        <location>/error-page.jsp</location>
+    </error-page>
+    
+    <error-page>
+        <exception-type>
+              javax.servlet.ServletException
+        </exception-type >
+        <location>/error-page.jsp</location>
+    </error-page>
+
+    
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    
+    <context-param>  
+        <param-name>dname</param-name>  
+        <param-value>sun.jdbc.odbc.JdbcOdbcDriver</param-value>  
+    </context-param>  
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>faces/index.xhtml</welcome-file>
+    </welcome-file-list>
+</web-app>

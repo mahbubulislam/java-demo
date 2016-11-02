@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<!-- A validator verifies that the tags are used correctly at JSP
+          translation time. Validator entries look like this: 
+       <validator>
+           <validator-class>com.mycompany.TagLibValidator</validator-class>
+           <init-param>
+              <param-name>parameter</param-name>
+              <param-value>value</param-value>
+           </init-param>
+       </validator>
+    -->
+<!-- A tag library can register Servlet Context event listeners in
+         case it needs to react to such events. Listener entries look
+         like this: 
+      <listener>
+          <listener-class>com.mycompany.TagLibListener</listener-class> 
+      </listener>
+    -->
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.0</jsp-version>
+  <short-name>Greet TLD</short-name>
+  <uri>WEB-INF/tlds/greet.tld</uri>
+  <tag>
+    <name>greet</name>
+    <tag-class>com.gmail.mmi.cse.SalutationTag</tag-class>
+    <attribute>
+      <name>userName</name>
+      <required> true </required>
+      <rtexprvalue>true</rtexprvalue>
+      <!-- for enabling Expression Language as attribute value-->
+    </attribute>
+    <body-content>scriptless</body-content>
+  </tag>
+  <tag>
+    <name>helloTag</name>
+    <tag-class>com.gmail.mmi.cse.SimpleHelloTag</tag-class>
+    <body-content>scriptless</body-content>
+  </tag>
+</taglib>
